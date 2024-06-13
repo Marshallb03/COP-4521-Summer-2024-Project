@@ -1,28 +1,21 @@
-from flask import render_template, redirect, url_for, request, flash
-from flask_login import login_user, logout_user, login_required, current_user
-from . import app, db, login_manager
-from .models import User, College
-from .forms import LoginForm, RegistrationForm, SearchForm, CollegeForm
+from flask import Flask,render_template,flash, redirect,url_for,session,logging,request
+from flask_sqlalchemy import SQLAlchemy
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route("/login",methods=["GET", "POST"])
 def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(Username=form.username.data).first()
-        if user and user.Password == form.password.data:
-            login_user(user)
-            return redirect(url_for('dashboard'))
-        else:
-            flash('Invalid username or password.', 'error')
-    return render_template('login.html', form=form)
+    if request.method == "POST":
+        uname = request.form["uname"]
+        passw = request.form["passw"]
+        
+        login = user.query.filter_by(username=uname, password=passw).first()
+        if login is not None:
+            return redirect(url_for("index"))
+    return render_template("login.html")
 
 @app.route('/logout')
 @login_required
@@ -30,17 +23,20 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/register', methods=['GET', 'POST'])
+@app.route("/register", methods=["GET", "POST"])
 def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(Username=form.username.data, Email=form.email.data, Password=form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash('You have successfully registered.', 'success')
-        return redirect(url_for('login'))
-    return render_template('register.html', form=form)
+    if request.method == "POST":
+        uname = request.form['uname']
+        mail = request.form['mail']
+        passw = request.form['passw']
 
+        register = user(username = usname, email = mail, password = passw)
+        db.session.add(register)
+        db.session.commit()
+
+        return redirect(url_for("login"))
+    return render_template("register.html")
+    
 @app.route('/dashboard')
 @login_required
 def dashboard():
