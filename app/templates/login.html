@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Finder - Login</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
-    <h1>College Finder - Login</h1>
-    <form action="/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
+    <h1>Login</h1>
+    <form method="POST" action="{{ url_for('routes.login') }}">
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="uname" required>
+        <br>
+        <label for="passw">Password:</label>
+        <input type="password" id="passw" name="passw" required>
+        <br>
         <button type="submit">Login</button>
     </form>
 </body>

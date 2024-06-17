@@ -1,14 +1,13 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import  UserMixin, LoginManager 
-db = SQLAlchemy()
+from flask_login import UserMixin
 
+db = SQLAlchemy()
 
 class User(UserMixin, db.Model):
     UserID = db.Column(db.Integer, primary_key=True)
     Username = db.Column(db.String(255))
     Password = db.Column(db.String(255))
     role = db.Column(db.String(80), db.ForeignKey('role.name'))
-    
 
 class College(db.Model):
     UniversityID = db.Column(db.Integer, primary_key=True)
@@ -35,7 +34,9 @@ class College(db.Model):
     InStateTuition = db.Column(db.Float)
     OutOfStateTuition = db.Column(db.Float)
 
-class Role(db.Model, RoleMixin):
+
+# class Role(db.Model, RoleMixin):  
+class Role(db.Model):
     __tablename__ = 'role'
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(80), unique=True)

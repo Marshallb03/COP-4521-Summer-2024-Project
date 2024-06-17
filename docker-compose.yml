@@ -16,13 +16,15 @@ services:
 
   web:
     build: .
-    command: python3 run.py
-    volumes:
-      - .:/app
+    container_name: project-web
     ports:
       - "5000:5000"
+    volumes:
+      - .:/app
     depends_on:
       - db
+    environment:
+      - FLASK_ENV=development
 
 volumes:
   db_data:

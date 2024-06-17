@@ -4,13 +4,13 @@ from flask_login import LoginManager
 
 db = SQLAlchemy()
 
+
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'secretkey'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost/college'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
-
 
     login_manager = LoginManager()
     login_manager.login_view = 'login'
@@ -19,7 +19,7 @@ def create_app():
     from .models import User
     from .routes import routes
     app.register_blueprint(routes, url_prefix='/')
-    app.register_blueprint(models, url_prefix='/')
+    # app.register_blueprint(models, url_prefix='/')
 
     @login_manager.user_loader
     def load_user(user_id):
