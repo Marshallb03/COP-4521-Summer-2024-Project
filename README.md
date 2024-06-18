@@ -29,4 +29,10 @@ pip install mysqlclient
 
 # TO access the web server
 # Run find_ip.bat, this should return a 1 to 3 addresses
-# One of those addresses should 
+# One of those addresses should be the correct address
+# Once you find the correct address
+# http://<address>:5000/, paste this into a web browser 
+
+# To connect to the mysql server
+docker exec -it mysql_db mysql -uroot -p
+# password: password
