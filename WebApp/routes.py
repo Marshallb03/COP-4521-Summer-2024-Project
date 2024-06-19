@@ -89,7 +89,6 @@ def add_college():
     return render_template('add_college.html', form=form)
 
 
-
 @routes.route('/college/delete/<int:college_id>', methods=['POST'])
 @login_required
 def delete_college(college_id):
