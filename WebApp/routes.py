@@ -13,7 +13,7 @@ def index():
 @routes.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('routes.index'))
+        return redirect(url_for('routes.dashbord'))
     if request.method == "POST":
         uname = request.form["uname"]
         passw = request.form["passw"]
