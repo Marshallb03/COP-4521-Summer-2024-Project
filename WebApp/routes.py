@@ -21,7 +21,7 @@ def login():
         login = User.query.filter_by(Username=uname, Password=passw).first()
         if login:
             login_user(login)
-            return redirect(url_for("routes.index"))
+            return redirect(url_for("routes.dashboard"))
     return render_template("login.html")
 
 
