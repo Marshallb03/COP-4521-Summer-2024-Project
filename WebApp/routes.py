@@ -86,7 +86,7 @@ def add_college():
         db.session.commit()
         flash('College added successfully.', 'success')
         return redirect(url_for('routes.dashboard'))
-    return render_template('add_college.html', form=form)
+    return render_template('create.html', form=form)
 
 
 @routes.route('/college/delete/<int:college_id>', methods=['POST'])
