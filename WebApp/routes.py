@@ -88,19 +88,6 @@ def add_college():
         return redirect(url_for('routes.dashboard'))
     return render_template('add_college.html', form=form)
 
-@routes.route('/college/edit/<int:college_id>', methods=['GET', 'POST'])
-@login_required
-def edit_college(college_id):
-    if current_user.role != 'admin':
-        return redirect(url_for('routes.dashboard'))
-    college = College.query.get_or_404(college_id)
-    form = CollegeForm(obj=college)
-    if form.validate_on_submit():
-        form.populate_obj(college)
-        db.session.commit()
-        flash('College updated successfully.', 'success')
-        return redirect(url_for('routes.dashboard'))
-    return render_template('edit_college.html', form=form)
 
 
 @routes.route('/college/delete/<int:college_id>', methods=['POST'])
