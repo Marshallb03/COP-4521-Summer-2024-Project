@@ -101,10 +101,13 @@ def delete_college(college_id):
     return redirect(url_for('routes.dashboard'))
 
 
-@routes.route('/search', methods=['GET', 'POST'])
+@app.route('/search', methods=['GET', 'POST'])
 def search():
-    form = SearchForm()
-    if form.validate_on_submit():
-        colleges = College.query.filter(College.UniversityName.ilike('%' + form.university_name.data + '%'))
-        return render_template('search_results.html', colleges=colleges)
-    return render_template('search.html', form=form)
+    universities = []
+    if request.method == 'POST':
+        criteria = request.form['criteria']
+        search_term = request.form['search_term']
+        query = f"SELECT * FROM University WHERE {criteria} LIKE %s"
+        cursor.execute(query, ('%' + search_term + '%',))
+        universities = cursor.fetchall()
+    return render_template('search.html', universities=universities)
