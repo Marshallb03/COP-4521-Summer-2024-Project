@@ -19,7 +19,6 @@ def create_app():
     from .models import User
     from .routes import routes
     app.register_blueprint(routes, url_prefix='/')
-    # app.register_blueprint(models, url_prefix='/')
 
     @login_manager.user_loader
     def load_user(user_id):
