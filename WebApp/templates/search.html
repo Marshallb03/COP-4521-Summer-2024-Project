@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<h1>Search Universities</h1>
-<form action="{{ url_for('search') }}" method="post">
-    <label for="criteria">Search By:</label>
-    <select id="criteria" name="criteria">
-        <option value="UniversityName">Name</option>
-        <option value="AcceptanceRate">Acceptance Rate</option>
-        <option value="AverageSAT">Average SAT</option>
-        <option value="QSWorldRankings">QS World Rankings</option>
-        <option value="USNewsRanking2023">US News Ranking 2023</option>
-        <option value="QSWorldRanking2022">QS World Ranking 2022</option>
-        <option value="UndergraduatePopulation">Undergraduate Population</option>
-        <option value="AcademicGrade">Academic Grade</option>
-        <option value="AthleticGrade">Athletic Grade</option>
-        <option value="CampusGrade">Campus Grade</option>
-        <option value="CampusFoodGrade">Campus Food Grade</option>
-        <option value="DiversityGrade">Diversity Grade</option>
-        <option value="DormsGrade">Dorms Grade</option>
-        <option value="LocationGrade">Location Grade</option>
-        <option value="OverallGrade">Overall Grade</option>
-        <option value="PartySceneGrade">Party Scene Grade</option>
-        <option value="ProfessorsGrade">Professors Grade</option>
-        <option value="SafetyGrade">Safety Grade</option>
-        <option value="StudentLifeGrade">Student Life Grade</option>
-        <option value="ValueGrade">Value Grade</option>
-        <option value="InStateTuition">In-State Tuition</option>
-        <option value="OutOfStateTuition">Out-of-State Tuition</option>
-    </select>
-
-    <button type="submit">Search</button>
-</form>
+<head>
+    <title>Search Universities</title>
+</head>
+<body>
+    <h1>Search Universities</h1>
+    <form action="{{ url_for('routes.search') }}" method="post">
+        <label for="criteria">Search By:</label>
+        <select id="criteria" name="criteria">
+            <option value="UniversityName">Name</option>
+            <option value="AcceptanceRate">Acceptance Rate</option>
+            <option value="AverageSAT">Average SAT</option>
+            <option value="QSWorldRankings">QS World Rankings</option>
+            <option value="USNewsRanking2023">US News Ranking 2023</option>
+            <option value="QSWorldRanking2022">QS World Ranking 2022</option>
+            <option value="UndergraduatePopulation">Undergraduate Population</option>
+            <option value="AcademicGrade">Academic Grade</option>
+            <option value="AthleticGrade">Athletic Grade</option>
+            <option value="CampusGrade">Campus Grade</option>
+            <option value="CampusFoodGrade">Campus Food Grade</option>
+            <option value="DiversityGrade">Diversity Grade</option>
+            <option value="DormsGrade">Dorms Grade</option>
+            <option value="LocationGrade">Location Grade</option>
+            <option value="OverallGrade">Overall Grade</option>
+            <option value="PartySceneGrade">Party Scene Grade</option>
+            <option value="ProfessorsGrade">Professors Grade</option>
+            <option value="SafetyGrade">Safety Grade</option>
+            <option value="StudentLifeGrade">Student Life Grade</option>
+            <option value="ValueGrade">Value Grade</option>
+            <option value="InStateTuition">In-State Tuition</option>
+            <option value="OutOfStateTuition">Out-of-State Tuition</option>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+</body>
 </html>
-

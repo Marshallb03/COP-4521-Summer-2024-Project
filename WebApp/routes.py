@@ -12,18 +12,16 @@ def index():
 
 @routes.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('routes.dashbord'))
     if request.method == "POST":
         uname = request.form["uname"]
         passw = request.form["passw"]
-        
-        login = User.query.filter_by(Username=uname, Password=passw).first()
-        if login:
-            login_user(login)
-            return redirect(url_for("routes.dashboard"))
-    return render_template("login.html")
 
+        if uname == "Admin" and passw == "password":
+            return redirect(url_for("routes.dashboard"))
+        else:
+            flash("Invalid username or password.")
+    
+    return render_template("login.html")
 
 @routes.route('/logout')
 @login_required
@@ -47,9 +45,14 @@ def register():
     return render_template("register.html")
 
 @routes.route('/dashboard')
-@login_required
 def dashboard():
     return render_template('dashboard.html')
+
+@routes.route('/create', methods=['GET', 'POST'])
+def create():
+    return render_template('create.html')
+
+
 
 @routes.route('/college/add', methods=['GET', 'POST'])
 @login_required
