@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from .models import db, User, College, Role  # import db and models
 
-db = SQLAlchemy()
+db = SQLAlchemy(app)
 
 
 def create_app():
