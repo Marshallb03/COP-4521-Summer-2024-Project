@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Finder</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+   <h1>Dashboard</h1>
     <nav>
         <ul>
             <li><a href="{{ url_for('create') }}">Add University</a></li>
             <li><a href="{{ url_for('search') }}">Search</a></li>
             <li><a href="{{ url_for('delete') }}">Delete</a></li>
-          
         </ul>
     </nav>
-
 </body>
 </html>
