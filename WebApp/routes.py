@@ -101,13 +101,13 @@ def delete_college(college_id):
     return redirect(url_for('routes.dashboard'))
 
 
-@app.route('/search', methods=['GET', 'POST'])
+@routes.route('/search', methods=['GET', 'POST'])
 def search():
     universities = []
     if request.method == 'POST':
         criteria = request.form['criteria']
         search_term = request.form['search_term']
         query = f"SELECT * FROM University WHERE {criteria} LIKE %s"
-        cursor.execute(query, ('%' + search_term + '%',))
-        universities = cursor.fetchall()
+        query = f"SELECT * FROM University WHERE {criteria} LIKE %s"
+        universities = College.query.from_statement(query, search_term).all()
     return render_template('search.html', universities=universities)
