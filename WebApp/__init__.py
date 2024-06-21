@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from .models import db, User, College, Role  # import db and models
 
 db = SQLAlchemy()
 
@@ -26,5 +27,5 @@ def create_app():
     return app
 
 def create_db(app):
-    db.create_all(app=app)
+    db.create_all()
     print('Database created.')
