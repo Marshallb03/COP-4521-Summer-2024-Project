@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Universities</title>
+</head>
+<body>
+    <h1>Search Universities</h1>
+    <form method="post">
+        <label for="criteria">Search Criteria:</label>
+        <select name="criteria" id="criteria">
+            <option value="AcceptanceRate">Acceptance Rate</option>
+            <option value="AverageSAT">Average SAT</option>
+            <option value="QSWorldRankings">QS World Rankings</option>
+            <option value="UndergraduatePopulation">Undergraduate Population</option>
+            <option value="USNewsRanking2023">2023 US News Ranking</option>
+            <option value="QSWorldRanking2022">2022 QS World Ranking</option>
+            <option value="AcademicGrade">Academic Grade</option>
+            <option value="AthleticGrade">Athletic Grade</option>
+            <option value="CampusGrade">Campus Grade</option>
+            <option value="CampusFoodGrade">Campus Food Grade</option>
+            <option value="DiversityGrade">Diversity Grade</option>
+            <option value="DormsGrade">Dorms Grade</option>
+            <option value="LocationGrade">Location Grade</option>
+            <option value="OverallGrade">Overall Grade</option>
+            <option value="PartySceneGrade">Party Scene Grade</option>
+            <option value="ProfessorsGrade">Professors Grade</option>
+            <option value="SafetyGrade">Safety Grade</option>
+            <option value="StudentLifeGrade">Student Life Grade</option>
+            <option value="ValueGrade">Value Grade</option>
+        </select>
+        <br><br>
+        <label for="min_value">Min Value:</label>
+        <input type="number" name="min_value" id="min_value" required>
+        <br><br>
+        <label for="max_value">Max Value:</label>
+        <input type="number" name="max_value" id="max_value" required>
+        <br><br>
+        <input type="submit" value="Search">
+    </form>
+    <p>Acceptance Rate min 4 and max 94</p>
+    <p>Average SAT min 1125 and max 1555</p>
+    <p>QSWorldRanking min 1 and max 3000</p>
+    <p>Undergraduate Population min is 987 and max 60075</p>
+    <p>2023 US News Ranking min 1 and max 194</p>
+    <p>2022 QS World Ranking min is 1 and max 3000</p>
+    <p>Niche Grades are 50-100</p>
+    <p>Tuition prices are per year</p>
+    <div class="link-back">
+        <a href="/dashboard">Back to Dashboard</a>
+    </div>
+
+
+</body>
+</html>

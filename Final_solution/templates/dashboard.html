@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Finder</title>
+    <style>
+        body {
+            background-image: url('pexels-pixabay-256490.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to College Finder!</h1>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('search') }}">Search</a></li>
+            <li><a href="{{ url_for('delete') }}">Delete University</a></li>
+            <li><a href="{{ url_for('create') }}">Add University</a></li>
+            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
