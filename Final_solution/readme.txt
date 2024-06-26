@@ -1,12 +1,10 @@
-note: This is a simplified version which uses PostgreSQL, the user can search for universities depending on what he wants. 
+This is a simplified version that uses PostgreSQL, the user can search for universities depending on what he wants. 
 
 
 I used 4521 as the password of the database. 
-Simplified version. 
-I used PostgreSQL instead of mysql to remove the error. 
-Created the database called college_finder on pgAdmin locally. 
+Create the database called college_finder on pgAdmin locally. 
 Create a Virtual Environment to run it. 
-Installed the required packaged. 
+Install the required packages
 * pip install -r requirements.txt
 * pip install psycopg2-binary (required to fix error in PostgreSQL)
 populate the database using:
