@@ -108,8 +108,8 @@ def search():
         criteria = request.form['criteria']
         min_value = request.form['min_value']
         max_value = request.form['max_value']
-        
-        universities = University.query.filter(getattr(University, criteria).between(min_value, max_value)).all()
+
+        universities = University.query.filter(getattr(University, criteria).between(min_value, max_value)).order_by(getattr(University, criteria)).all()
         return render_template('search_results.html', universities=universities)
     return render_template('search.html')
 
