@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-      <h1>Register</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-  
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" id="email" required>
-  
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-  
-      <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-      <hr>
-      <button type="submit" class="registerbtn">Register</button>
-    </div>
-  
-    <div class="container signin">
-      <p>Already have an account? <a href="#">Sign in</a>.</p>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="POST" action="{{ url_for('routes.register') }}">
+        <label for="uname">Username:</label>
+        <input type="text" id="uname" name="uname" required>
+        <br>
+        <label for="passw">Password:</label>
+        <input type="password" id="passw" name="passw" required>
+        <br>
+        <label for="role">Role:</label>
+        <select id="role" name="role" required>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Update University</title>
+</head>
+<body>
+    <h1>Update University</h1>
+    <form action="{{ url_for('routes.update_university', university_id=university.UniversityID) }}" method="post">
+        <label for="university_name">University Name:</label>
+        <input type="text" id="university_name" name="university_name" value="{{ university.UniversityName }}"><br>
+
+        <label for="acceptance_rate">Acceptance Rate:</label>
+        <input type="text" id="acceptance_rate" name="acceptance_rate" value="{{ university.AcceptanceRate }}"><br>
+
+        <label for="average_sat">Average SAT:</label>
+        <input type="text" id="average_sat" name="average_sat" value="{{ university.AverageSAT }}"><br>
+
+        <label for="qs_world_rankings">QS World Rankings:</label>
+        <input type="text" id="qs_world_rankings" name="qs_world_rankings" value="{{ university.QSWorldRankings }}"><br>
+
+        <label for="us_news_ranking_2023">US News Ranking 2023:</label>
+        <input type="text" id="us_news_ranking_2023" name="us_news_ranking_2023" value="{{ university.USNewsRanking2023 }}"><br>
+
+        <label for="qs_world_ranking_2022">QS World Ranking 2022:</label>
+        <input type="text" id="qs_world_ranking_2022" name="qs_world_ranking_2022" value="{{ university.QSWorldRanking2022 }}"><br>
+
+        <label for="undergraduate_population">Undergraduate Population:</label>
+        <input type="text" id="undergraduate_population" name="undergraduate_population" value="{{ university.UndergraduatePopulation }}"><br>
+
+        <label for="academic_grade">Academic Grade:</label>
+        <input type="text" id="academic_grade" name="academic_grade" value="{{ university.AcademicGrade }}"><br>
+
+        <label for="athletic_grade">Athletic Grade:</label>
+        <input type="text" id="athletic_grade" name="athletic_grade" value="{{ university.AthleticGrade }}"><br>
+
+        <label for="campus_grade">Campus Grade:</label>
+        <input type="text" id="campus_grade" name="campus_grade" value="{{ university.CampusGrade }}"><br>
+
+        <label for="campus_food_grade">Campus Food Grade:</label>
+        <input type="text" id="campus_food_grade" name="campus_food_grade" value="{{ university.CampusFoodGrade }}"><br>
+
+        <label for="diversity_grade">Diversity Grade:</label>
+        <input type="text" id="diversity_grade" name="diversity_grade" value="{{ university.DiversityGrade }}"><br>
+
+        <label for="dorms_grade">Dorms Grade:</label>
+        <input type="text" id="dorms_grade" name="dorms_grade" value="{{ university.DormsGrade }}"><br>
+
+        <label for="location_grade">Location Grade:</label>
+        <input type="text" id="location_grade" name="location_grade" value="{{ university.LocationGrade }}"><br>
+
+        <label for="overall_grade">Overall Grade:</label>
+        <input type="text" id="overall_grade" name="overall_grade" value="{{ university.OverallGrade }}"><br>
+
+        <label for="party_scene_grade">Party Scene Grade:</label>
+        <input type="text" id="party_scene_grade" name="party_scene_grade" value="{{ university.PartySceneGrade }}"><br>
+
+        <label for="professors_grade">Professors Grade:</label>
+        <input type="text" id="professors_grade" name="professors_grade" value="{{ university.ProfessorsGrade }}"><br>
+
+        <label for="safety_grade">Safety Grade:</label>
+        <input type="text" id="safety_grade" name="safety_grade" value="{{ university.SafetyGrade }}"><br>
+
+        <label for="student_life_grade">Student Life Grade:</label>
+        <input type="text" id="student_life_grade" name="student_life_grade" value="{{ university.StudentLifeGrade }}"><br>
+
+        <label for="value_grade">Value Grade:</label>
+        <input type="text" id="value_grade" name="value_grade" value="{{ university.ValueGrade }}"><br>
+
+        <label for="in_state_tuition">In-State Tuition:</label>
+        <input type="text" id="in_state_tuition" name="in_state_tuition" value="{{ university.InStateTuition }}"><br>
+
+        <label for="out_of_state_tuition">Out-of-State Tuition:</label>
+        <input type="text" id="out_of_state_tuition" name="out_of_state_tuition" value="{{ university.OutOfStateTuition }}"><br>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

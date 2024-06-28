@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <title>Dashboard</title>
 </head>
 <body>
-   <h1>Dashboard</h1>
+    <h1>Dashboard</h1>
     <nav>
         <ul>
             <li><a href="{{ url_for('routes.create') }}">Add University</a></li>
             <li><a href="{{ url_for('routes.search') }}">Search</a></li>
-
         </ul>
     </nav>
+
+    <h2>Universities</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>University Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for university in universities %}
+            <tr>
+                <td>{{ university.UniversityID }}</td>
+                <td>{{ university.UniversityName }}</td>
+                <td>
+                    <a href="{{ url_for('routes.edit_university', university_id=university.UniversityID) }}">Edit</a>
+                    <form action="{{ url_for('routes.delete', university_id=university.UniversityID) }}" method="post" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>

@@ -6,32 +6,38 @@
 <body>
     <h1>Search Universities</h1>
     <form action="{{ url_for('routes.search') }}" method="post">
-        <label for="criteria">Search By:</label>
-        <select id="criteria" name="criteria">
-            <option value="UniversityName">Name</option>
-            <option value="AcceptanceRate">Acceptance Rate</option>
-            <option value="AverageSAT">Average SAT</option>
-            <option value="QSWorldRankings">QS World Rankings</option>
-            <option value="USNewsRanking2023">US News Ranking 2023</option>
-            <option value="QSWorldRanking2022">QS World Ranking 2022</option>
-            <option value="UndergraduatePopulation">Undergraduate Population</option>
-            <option value="AcademicGrade">Academic Grade</option>
-            <option value="AthleticGrade">Athletic Grade</option>
-            <option value="CampusGrade">Campus Grade</option>
-            <option value="CampusFoodGrade">Campus Food Grade</option>
-            <option value="DiversityGrade">Diversity Grade</option>
-            <option value="DormsGrade">Dorms Grade</option>
-            <option value="LocationGrade">Location Grade</option>
-            <option value="OverallGrade">Overall Grade</option>
-            <option value="PartySceneGrade">Party Scene Grade</option>
-            <option value="ProfessorsGrade">Professors Grade</option>
-            <option value="SafetyGrade">Safety Grade</option>
-            <option value="StudentLifeGrade">Student Life Grade</option>
-            <option value="ValueGrade">Value Grade</option>
-            <option value="InStateTuition">In-State Tuition</option>
-            <option value="OutOfStateTuition">Out-of-State Tuition</option>
+        <label for="university">Select University:</label>
+        <select id="university" name="university">
+            {% for college in colleges %}
+                <option value="{{ college.UniversityName }}">{{ college.UniversityName }}</option>
+            {% endfor %}
         </select>
         <button type="submit">Search</button>
     </form>
+
+    {% if selected_college %}
+        <h2>Details for {{ selected_college.UniversityName }}</h2>
+        <p>Acceptance Rate: {{ selected_college.AcceptanceRate }}%</p>
+        <p>Average SAT: {{ selected_college.AverageSAT }}</p>
+        <p>QS World Rankings: {{ selected_college.QSWorldRankings }}</p>
+        <p>US News Ranking 2023: {{ selected_college.USNewsRanking2023 }}</p>
+        <p>QS World Ranking 2022: {{ selected_college.QSWorldRanking2022 }}</p>
+        <p>Undergraduate Population: {{ selected_college.UndergraduatePopulation }}</p>
+        <p>Academic Grade: {{ selected_college.AcademicGrade }}</p>
+        <p>Athletic Grade: {{ selected_college.AthleticGrade }}</p>
+        <p>Campus Grade: {{ selected_college.CampusGrade }}</p>
+        <p>Campus Food Grade: {{ selected_college.CampusFoodGrade }}</p>
+        <p>Diversity Grade: {{ selected_college.DiversityGrade }}</p>
+        <p>Dorms Grade: {{ selected_college.DormsGrade }}</p>
+        <p>Location Grade: {{ selected_college.LocationGrade }}</p>
+        <p>Overall Grade: {{ selected_college.OverallGrade }}</p>
+        <p>Party Scene Grade: {{ selected_college.PartySceneGrade }}</p>
+        <p>Professors Grade: {{ selected_college.ProfessorsGrade }}</p>
+        <p>Safety Grade: {{ selected_college.SafetyGrade }}</p>
+        <p>Student Life Grade: {{ selected_college.StudentLifeGrade }}</p>
+        <p>Value Grade: {{ selected_college.ValueGrade }}</p>
+        <p>In-State Tuition: ${{ selected_college.InStateTuition }}</p>
+        <p>Out-of-State Tuition: ${{ selected_college.OutOfStateTuition }}</p>
+    {% endif %}
 </body>
 </html>
