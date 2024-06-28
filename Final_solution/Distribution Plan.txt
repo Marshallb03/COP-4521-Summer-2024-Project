@@ -1,0 +1,25 @@
+Before distributing our program, we had to determine the reasons for why we might do
+so in the first place. Right now, our application is hosted only on our local network 
+using our local IP addresses. Meaning, we have only one server hosting our database. 
+The benefit of introducing distribution is due to the low-cost horizontal scaling it 
+would allow for our program as more people sign-up/register. instead of the alternative 
+high-cost vertical scaling which would mean having to increase the capabilities of our 
+own machines. Specifically, it would allow us to have reduced latency problems with users
+signing up to find their colleges of personal interest. This is because we could optimize 
+for certain machines in our network (which all hold copies of the same data) to target 
+individuals who live near these machines in a geographical setting. Aside from the benefits 
+of utilizing distribution with our application, it is important for us to choose a 
+complementary containerizing application that is suited best for our application. For this
+reason, we have chosen to use Docker. The benefits that Docker would give us is that it
+would allow us to containerize micro-services such as providing college recommendations
+based on user preferences, managing user authentication, storing college data, user
+information, etc. We would then have a better ability scaling our program or making
+changes to it as we might want to do so later on down the line. Since our program most
+likely wouldn’t have many users, we would try to optimize for consistency rather than
+availability. This is because there would be many instances where the application would
+be in a “soft state”, so there would be a lot of opportunity to have our distribution of
+system gain eventual consistency. There also wouldn’t be a lot of reads and writes to our
+databases so their would be no real reason to optimize for availability. To deploy, we 
+would first dockerize each section of our application: front- end, back-end, and database. 
+Then we would use a container orchestration tool like Kubernetes in order to then deploy the 
+actual application.
