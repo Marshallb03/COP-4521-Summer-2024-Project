@@ -1,0 +1,14 @@
+In the event that the code does not compile:
+ 
+Download the docker images:
+
+https://drive.google.com/file/d/1kdlJ4glNhQTGhWOjyKWeKT17Vwurwz6y/view?usp=sharing 
+
+Once downloaded
+
+unzip docker_images.zip
+docker load -i mysql_db_image.tar
+docker load -i project_web_image.tar
+docker run -d -p 3306:3306 --name mysql_db mysql_db_image
+docker run -d -p 5000:5000 --name project_web project_web_image
+
