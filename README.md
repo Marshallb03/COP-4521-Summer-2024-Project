@@ -10,11 +10,13 @@ Installed the required packaged.
 * pip install psycopg2-binary (required to fix error in PostgreSQL)
 populate the database using:
 * python -m my_project.populate_db
-create the user database 
+create the user database
+
 CREATE TABLE "user" (
     uid SERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     pass_hash VARCHAR(255) NOT NULL
 );
+
 run the project inside the environment: 
 * python -m my_project.run
